@@ -11,8 +11,9 @@ Agent IA de recommandation de films basé sur :
 ## Installation
 
 - Cloner le projet
+- Créer une API Key sur open router et la mettre dans le fichier agent
 - docker-compose build
 
 
-## Lancer
+## Lancement
 docker-compose up
