@@ -4,7 +4,6 @@ langchain_community
 langchain_core
 openai
 torch
-streamlit
 pandas
 flask
 scikit-learn
