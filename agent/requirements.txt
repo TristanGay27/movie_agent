@@ -8,4 +8,4 @@ pandas
 flask
 scikit-learn
 numpy
-faiss
+faiss-cpu

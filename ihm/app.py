@@ -1,7 +1,8 @@
 import streamlit as st
 import requests
 
-API_URL = "http://127.0.0.1:5000/predict"
+API_URL = "http://agent:5000/predict"
+
 
 st.set_page_config(page_title="🎬 Agent IA - Reco Films", layout="centered")
 
