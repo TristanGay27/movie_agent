@@ -18,6 +18,8 @@ from classifier import Classif
 
 app = Flask(__name__)
 
+YOUR_KEY = "to_replace"
+
 with open("vectorizer.pkl", "rb") as f:
     vectorizer = pickle.load(f)
 
@@ -58,7 +60,7 @@ def load_faiss_index(csv_path="movies_metadata.csv"):
     return index
 
 def new_agent():
-    #os.environ["OPENAI_API_KEY"] = YOUR_KEY
+    os.environ["OPENAI_API_KEY"] = YOUR_KEY
     os.environ["OPENAI_API_BASE"] = "https://openrouter.ai/api/v1"
     llm = init_chat_model(
         model="upstage/solar-pro-3:free",
