@@ -44,7 +44,7 @@ def load_faiss_index(csv_path="movies_metadata.csv"):
     # On garde uniquement les lignes exploitables
     df = df[["title", "overview"]].dropna()
     df = df[df["overview"].str.len() > 20]
-    df = df.sample(200, random_state=42) #pour le début
+    #df = df.sample(1000, random_state=42) #pour le début
 
     docs = [
         Document(
@@ -121,7 +121,7 @@ def new_agent():
                 {
                     "type": "text",
                     "text": """
-                            Tu es un assistant expert en cinéma.
+                            Tu es un expert en cinéma.
 
                             Tu dois
                             1. Identifier le film décrit par l'utilisateur.
@@ -134,9 +134,7 @@ def new_agent():
                                 - Si la question de l’utilisateur est en français, tu DOIS d’abord traduire le synopsis en anglais
                                 avant toute recherche ou appel d’outil.
                                 - Les réponses finales doivent rester en français.
-                            Question utilisateur :
-                            {question}
-
+                            
                             Réponds de manière structurée, claire et pas trop longue.
                             """,
                 }])
