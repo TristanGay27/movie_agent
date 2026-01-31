@@ -1,0 +1,31 @@
+services:
+  agent:
+    container_name: agent
+    build: ./agent
+    ports:
+      - "5000:5000"
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    networks:
+      - film-network
+
+  interface:
+    container_name: ihm
+    build: ./ihm
+    ports:
+      - "7860:7860"
+    depends_on:
+      - agent
+    networks:
+      - film-network
+
+networks:
+  film-network:
+    driver: bridge
+
+
